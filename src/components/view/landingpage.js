@@ -252,10 +252,14 @@ class LandingPage extends React.Component {
                         <span className="d-block mt-5">
                             <ul className="nav nav-tabs">
                                 <li className="nav-item">
-                                <a className="nav-link active bg-transparent" data-toggle="tab" href="#resultid">Result</a>
+                                <a className={`nav-link active bg-transparent ${csshome.tab}`} data-toggle="tab" href="#resultid">
+                                    Result
+                                </a>
                                 </li>
                                 <li className="nav-item">
-                                <a className="nav-link bg-transparent" data-toggle="tab" href="#nominationid">Nominations ( { getNomination().length } )</a>
+                                <a className={`nav-link bg-transparent ${csshome.tab}`} data-toggle="tab" href="#nominationid">
+                                    Nominations ( { getNomination().length } )
+                                </a>
                                 </li>
                             </ul>
                         </span>
