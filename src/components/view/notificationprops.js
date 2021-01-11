@@ -1,4 +1,4 @@
-export const max = 3;
+export const max = 5;
 
 export const notification = {
     maxNomination : { 

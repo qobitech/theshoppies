@@ -26,7 +26,40 @@ class LandingPage extends React.Component {
             share : false,
             message : "",
             tip : "",
-            trigger : false
+            trigger : false,
+            data : [],
+            loading : false,
+            error : "",
+            isMobile : false,
+            page : 1,
+            numberofPages : 0,
+            first : true,
+            last : true
+        }
+        this.formBtn = React.createRef();
+    }
+
+    handleFirst = ( status ) => {
+        this.setState( {  first : status } )
+    }
+
+    handleLast = ( status ) => {
+        this.setState( {  last : status } )
+    }
+
+    handleMobile = () => {
+        this.setState( {  isMobile : window.innerWidth < 992 } )
+    }
+
+    handlePage = ( sign ) => {
+        switch ( sign ){
+            case 'add' : this.setState( { page : this.state.page+1 } ); 
+                         setTimeout( ( ) => { this.formBtn.current.click( ) },200) 
+                         break;
+            case 'minus' : this.setState( { page : this.state.page-1 } ); 
+                         setTimeout( ( ) => { this.formBtn.current.click( ) },200) 
+                         break;
+            default : break;
         }
     }
 
@@ -36,8 +69,13 @@ class LandingPage extends React.Component {
 
     handleClick = ( ) => { this.setState( { click : false, message : "", tip : "" } ) }
 
+    getNumberOfPages = ( num ) => {
+        this.setState( { numberofPages : num } )
+    }
+
     componentDidMount( ){
         this.setState( { nominations : this.getNomination( ) } )
+        this.handleMobile()
     }
 
     handleShare = ( status ) => this.setState( { share : status } )
@@ -51,16 +89,42 @@ class LandingPage extends React.Component {
                 this.setState( { isMax : false } )
             }
         }
+        if( prevState.data !== this.state.data ){
+            if( Array.isArray( this.state.data ) ){
+                this.handleTrigger();
+            }
+        }
     }
 
-    handleSubmit = ( ) => { return e => { e.preventDefault( ); } }
+    handleData = ( data ) => {
+        this.setState( { data : data } )
+    }
+
+    handleLoading = ( status ) => {
+        this.setState( { loading : status } )
+    }
+
+    handleError = ( error ) => {
+        this.setState( { error : error } )
+    }
+
+    handleSubmit = ( ) => { 
+        const { getMovieData } = dataprops
+        return e => { 
+            e.preventDefault( ); 
+            if( this.state.title.length > 0 ){
+                getMovieData( this.state.title, this.handleData, this.handleLoading, this.handleError, this.getNumberOfPages, 
+                              this.state.page, this.handleFirst, this.handleLast )
+            }
+        } 
+    }
 
     handleOnChange = ( e ) => { this.setState( { [e.target.id] : e.target.value } ) }
 
     handleFocus = ( bool ) => { this.setState( { isFocus : bool } ) }
 
     getNomination = ( ) => {
-        return Array.isArray( cookies.get( 'nomination' ) ) ? cookies.get( 'nomination' ) : "NO NOMINATIONS"
+        return Array.isArray( cookies.get( 'nomination' ) ) ? cookies.get( 'nomination' ) : "0"
     }
 
     compareObj = ( arr, obj ) => {
@@ -78,7 +142,8 @@ class LandingPage extends React.Component {
         const { notification, max } = nominationprops;
         if( !this.state.isMax ){
             this.setState( { isSameObj : false, message : "", click : false } )
-            const { data } = dataprops; var nomination = [];
+            const { state : { data } } = this; 
+            var nomination = [];
             if( Array.isArray( this.getNomination( ) ) ){          
                 if( !this.compareObj( this.getNomination( ), data[ index ] ) ){
                     nomination = this.getNomination( ); nomination.push( data[ index ] );
@@ -101,7 +166,6 @@ class LandingPage extends React.Component {
             this.setState( { message : notification.exceedNomination.msg, 
                              tip : notification.exceedNomination.tip, click : true } )
         }
-        this.handleTrigger()
     }
 
     removeNomination = ( index ) => {
@@ -123,18 +187,18 @@ class LandingPage extends React.Component {
 
         const { One, Four } = font
 
-        const { handleSubmit, handleOnChange, handleFocus, addNomination, removeNomination,
-                state : { title, isFocus, nominations, trigger }  } = this
-
-        const { data } = dataprops
+        const { handleSubmit, handleOnChange, handleFocus, addNomination, removeNomination,getNomination,
+                state : { title, isFocus, nominations, trigger, data, loading, error }  } = this
 
         const searchWord = title;
 
-        const resultProps = { data, searchWord, addNomination, trigger } 
+        const { state : { click, message, tip, share, isMobile, numberofPages, first, last }, 
+                handleClick, handleShare, handlePage, formBtn } = this
+        
+        const resultProps = { data, loading, error, searchWord, addNomination, trigger, isMobile, 
+                              handlePage, numberofPages, first, last } 
 
-        const nominationProps = { nominations, removeNomination, trigger }
-
-        const { state : { click, message, tip, share }, handleClick, handleShare } = this
+        const nominationProps = { nominations, removeNomination, trigger, isMobile }
 
         return(
             <>
@@ -175,7 +239,7 @@ class LandingPage extends React.Component {
                                         <i className="fas fa-search" style={{color:"var(--main-color7)"}}/>
                                     </span>
                                     <span className={`position-absolute h-100 ${ title.length > 0 ? "d-flex" : "d-none"} align-items-center pl-3`} style={{width:"max-content",top:0,right:0}}>
-                                        <button className="px-3 bg-transparent" 
+                                        <button className="px-3 bg-transparent" ref={ formBtn }
                                             style={{border:0, borderLeft:"1px solid var(--main-color7)", color:"var(--main-color7)", height:"50px", outline:0}} >
                                             Search
                                         </button>
@@ -183,12 +247,31 @@ class LandingPage extends React.Component {
                                 </span>
                             </span>
                         </form>
+                        {isMobile ?
+                        <>
+                        <span className="d-block mt-5">
+                            <ul className="nav nav-tabs">
+                                <li className="nav-item">
+                                <a className="nav-link active bg-transparent" data-toggle="tab" href="#resultid">Result</a>
+                                </li>
+                                <li className="nav-item">
+                                <a className="nav-link bg-transparent" data-toggle="tab" href="#nominationid">Nominations ( { getNomination().length } )</a>
+                                </li>
+                            </ul>
+                        </span>
+                        <span className="d-block tab-content w-100 m-0 p-0">
+                            <Result resultProps={ resultProps } resultid="resultid" />
+
+                            <Nomination nominationProps={ nominationProps } nominationid="nominationid" />
+                        </span>
+                        </>
+                        :
                         <span className={`d-flex flex-wrap align-items-start justify-content-between`}>
                             <Result resultProps={ resultProps } />
 
                             <Nomination nominationProps={ nominationProps } />
                         </span>
-
+                        }
                     </div>
                 </div>
 

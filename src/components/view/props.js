@@ -25,6 +25,17 @@ export const moreinfoProps = {
             outline:0
         }
     },
+    buttonPagination : {
+        className : "px-3 ml-0 ml-md-3 rounded bg-transparent",
+        style : {
+            border : "1px solid var(--main-color7)",
+            color : "var(--main-color7)",
+            height : "30px",
+            fontFamily : "encode_sans_medium",
+            fontSize:"12px",
+            outline:0
+        }
+    },
     buttonDisabled : {
         className : "px-3 ml-0 ml-md-3 rounded border-0",
         style : {

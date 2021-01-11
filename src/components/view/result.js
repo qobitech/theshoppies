@@ -1,5 +1,5 @@
 import React from 'react'
-import OtherInfo from './otherInfo'
+// import OtherInfo from './otherInfo'
 import Lazyload from 'react-lazyload'
 import spinner from '../assets/images/spinner.svg'
 import homecss from './landingpage.module.css'
@@ -64,7 +64,11 @@ class ResultItem extends React.Component {
     render(){
 
         const { props : { item, data, index, btnTxt, button, buttonDisabled, variant }, 
-                state : { tray, disabledBtn, close }, handleTray, handleEvent } = this
+                state : { tray, disabledBtn, 
+                    // close
+                 }, 
+                // handleTray, 
+                handleEvent } = this
 
         let btnstyle = disabledBtn ? buttonDisabled : button;
 
@@ -75,16 +79,17 @@ class ResultItem extends React.Component {
                 <span className="d-flex flex-wrap align-items-center w-100 justify-content-between" >
                     
                     <span className="mr-3 my-2 d-flex align-items-center justify-content-center" 
-                        style={{minWidth:"50px", minHeight:"50px", borderRadius:"50%", border: "1px solid #f5f5f5", overflow:"hidden"}}>
+                        style={{minWidth:"50px", minHeight:"50px", overflow:"hidden"}} >
                         <Lazyload placeholder={<img src={ spinner } alt="spinner icon" style={{width:"20px"}}/>} >
-                            <img src={ item.Poster } alt="" />
+                            <img src={ item.Poster } alt="" style={{width:"50px", height:"50px"}} />
                         </Lazyload>
                     </span>
 
                     <span className="d-flex flex-wrap align-items-center justify-content-between" style={{flex:1}}>
                         
-                        <span className={`d-flex flex-wrap py-4 align-items-center`} style={{flex:1}}>
-                            <li style={{fontSize:"14px", listStyleType:"none", maxWidth:"150px", overflowWrap: "break-word", fontFamily:"encode_sans_medium"}} 
+                        <span className={`d-flex py-4 align-items-center justify-content-between`} style={{flex:1}}>
+                            <li style={{fontSize:"14px", listStyleType:"none", maxWidth:"270px", overflowWrap: "break-word", 
+                                        fontFamily:"encode_sans_medium", lineHeight:"25px" }} 
                                 className="mr-3 my-2">
                                 { item.Title }&nbsp;({ item.Year })
                             </li>
@@ -100,19 +105,19 @@ class ResultItem extends React.Component {
                             </button>}                            
                         </span> 
 
-                        <span style={{minWidth:"30px", minHeight:"30px", borderRadius:"50%", fontSize:"16px", cursor: "pointer", 
+                        {/* <span style={{minWidth:"30px", minHeight:"30px", borderRadius:"50%", fontSize:"16px", cursor: "pointer", 
                             color:"var(--main-color7)", border:".4px solid var(--main-color7"}} 
                             className="d-flex align-items-center justify-content-center" onClick={ handleTray }>
                                 { tray ? "-" : "+" }
-                        </span>
+                        </span> */}
                         
                     </span>
 
                 </span>
                 
-                <span className={`d-block w-100 my-2 ${ tray ?  homecss.tray : close }`} style={ { height : "0px", overflow : "hidden" } } > 
+                {/* <span className={`d-block w-100 my-2 ${ tray ?  homecss.tray : close }`} style={ { height : "0px", overflow : "hidden" } } > 
                     <OtherInfo item={ item } />
-                </span>
+                </span> */}
 
             </span>
 

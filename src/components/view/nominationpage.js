@@ -17,16 +17,18 @@ class Nomination extends React.Component {
 
         const { Three, Five } = font
 
-        const { props : { nominationProps } } = this
+        const { props : { nominationProps, nominationid } } = this
 
-        const { nominations, removeNomination, trigger } = nominationProps || {}
+        const { nominations, removeNomination, trigger, isMobile } = nominationProps || {}
 
         const btnTxt = "Remove"
 
         const { moreinfoProps : { buttonRemove } } = styleProps;
 
+        const tapprops = isMobile ? "tab-pane fade" : ""
+
         return(
-            <div className={`${csshome.sticky} col-12 col-lg-6 pr-0 pl-0 pl-lg-3`}>
+            <div className={`${csshome.sticky} col-12 col-lg-6 pr-0 pl-0 pl-lg-3 ${ tapprops }`} id={ nominationid }>      
                 <div className="d-flex flex-column bg-white rounded my-5 py-4 px-4" style={{boxShadow:"var(--box-shadow)"}}>
                     <span className="d-flex w-100 align-items-center" style={{overflow:"hidden", height:"45px"}}>
                         <Three fontStyle={{fontFamily:"encode_sans_semi_bold"}}>Nominations</Three>
