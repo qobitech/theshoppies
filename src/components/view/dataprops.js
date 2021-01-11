@@ -42,9 +42,9 @@ const numberofPages = ( totalresult, pagenum, first, last ) => {
 export const getMovieData = ( movies, handleData, handleLoading, handleError, getNumberofPages, pagenum, first, last ) => {
     let dmovies = movies.trim(); dmovies  = movies.replace(/\s/g, '+')
     let api = pagenum === undefined ? 
-        `http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_OMDB_API_KEY}&type=movie&plot=full&s=${dmovies}`
+        `https://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_OMDB_API_KEY}&type=movie&plot=full&s=${dmovies}`
         :
-        `http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_OMDB_API_KEY}&type=movie&plot=full&s=${dmovies}&page=${pagenum}`
+        `https://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_OMDB_API_KEY}&type=movie&plot=full&s=${dmovies}&page=${pagenum}`
     handleLoading( true )
     API( api )
     .then( res => {
