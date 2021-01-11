@@ -108,7 +108,7 @@ export const modalJson = (color,bg) => ({
     modalBodyContent : {
         className : "d-flex flex-column w-100 justify-content-center text-center align-items-center",
         style : {
-            height : "50px"
+            minHeight : "50px"
         }
     },
     modalBodyText : {

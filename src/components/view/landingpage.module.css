@@ -6,11 +6,11 @@
 }
 
 .bg{
-    background-image: url('../assets/images/saksham-gangwar-YVgOh8w1R4s-unsplash.jpg');
+    /* background-image: url('../assets/images/saksham-gangwar-YVgOh8w1R4s-unsplash.jpg'); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    /* background-image: linear-gradient(rgb(22,41,52),rgb(0, 55, 82)) */
+    background-image: linear-gradient(rgb(22,41,52),rgb(0, 55, 82))
 }
 
 .tab{

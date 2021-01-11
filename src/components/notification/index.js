@@ -72,10 +72,10 @@ class Notification extends React.Component {
 
                         <div className={`${modalBody.className}`} style={{...modalBody.style}}>
                             <span className={`${modalBodyContent.className} py-3`} style={{...modalBodyContent.style}}>
-                                <Three fontClass={`${modalBodyText.className} mt-5`} fontStyle={{...modalBodyText.style}}>
+                                <Three fontClass={`${modalBodyText.className} mt-3`} fontStyle={{...modalBodyText.style}}>
                                     { message }
                                 </Three> 
-                                <span className="d-flex w-100 px-4 mx-auto mb-5 py-2" style={{maxWidth:"330px"}}>
+                                <span className="d-flex w-100 px-4 mx-auto mb-3 py-2" style={{maxWidth:"330px"}}>
                                     <Para fontClass="mt-3" fontStyle={{fontSize:"13px",fontFamily:"encode_sans_medium"}}>
                                         { tip } 
                                     </Para>
