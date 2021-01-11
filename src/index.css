@@ -1,13 +1,104 @@
+@font-face {
+  font-family: 'encode_sans';
+  src: url('./components/assets/font/encode_sans/EncodeSans-Regular.ttf');
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'encode_sans_semi_bold';
+  src: url('./components/assets/font/encode_sans/EncodeSans-SemiBold.ttf');
+  font-display: block;
+}
+
+
+@font-face {
+  font-family: 'source_sans_pro';
+  src: url('./components/assets/font/manrope/Manrope-VariableFont_wght.ttf');
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'metro';
+  src: url('./components/assets/font/metro/Metropolis-Regular.otf');
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'manrope';
+  src: url('./components/assets/font/manrope/Manrope-VariableFont_wght.ttf');
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'ad';
+  src: url('./components/assets/font/qs/Quicksand-VariableFont_wght.ttf');
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'encode_sans_medium';
+  src: url('./components/assets/font/encode_sans/EncodeSans-Medium.ttf');
+  font-display: fallback;
+}
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'encode_sans',Arial, Helvetica, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'encode_sans', monospace;
 }
+
+:root{
+  --semi : 'encode_sans_semi_bold';
+  --medium : 'encode_sans_medium';
+  --bold : 'encode_sans_bold';
+  --main-color : #260590;
+  --main-color2 : #ffffff;
+  --main-color3 : #3B18AD;
+  --main-color4 : #00000029;
+  --main-color5 : #F5F5F5;
+  --main-color6 : #005B8B;
+  --main-color7 : #008B76;
+  --main-color7light : #bcf3eb;
+  --main-color8 : #575757;
+  --main-color9 : #EAEAEA;
+  --main-color10 : #3434349A;
+  --light-bg : #f9f9f9;
+  --main-color11 : #B39BFF;
+  --main-color12 : #DDDAE6;
+  --main-color13 : #000;
+  --dark-background : #000;
+  --dark-primary : #F0F0F0;
+  --dark-secondary : #FF5E00;
+  --dark-border : #303030;
+  --light-background : #f0f0f0;
+  --light-primary : #000;
+  --light-secondary : #FF5E00;
+  --light-border : #C4C4C4;
+  --gold :#FF9900;
+  /* --light-gold : #FF9900; */
+  --light-gold : #CFAB3F;
+  --box-shadow : 0px 2px 8px -1px rgba(4, 102, 200, 0.125), 0px 0px 1px rgba(4, 102, 200, 0.25);
+}
+
+.modal-backdrop{
+  z-index: 0 !important;
+}
+
+* ::-moz-selection {
+  background-color: transparent;
+}
+
+* ::selection {
+  background-color: transparent;
+}
+
+.carousel .slide{
+  background : transparent !important;
+}
+

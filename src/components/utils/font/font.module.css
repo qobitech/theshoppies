@@ -1,0 +1,113 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.font_one,
+.font_two,
+.font_three,
+.font_four,
+.font_five,
+.font_six,
+.font_p,
+.font_alpha{
+    font-family: 'encode_sans';
+}
+
+.font_one::-moz-selection,
+.font_two::-moz-selection,
+.font_three::-moz-selection,
+.font_four::-moz-selection,
+.font_five::-moz-selection,
+.font_six::-moz-selection,
+.font_p::-moz-selection,
+.font_alpha::-moz-selection {
+    background-color: transparent;
+}
+  
+.font_one::selection,
+.font_two::selection,
+.font_three::selection,
+.font_four::selection,
+.font_five::selection,
+.font_six::selection,
+.font_p::selection,
+.font_alpha::selection {
+    background-color: transparent;
+}
+  
+
+.font_one{
+    font-size: 3em;
+    font-weight: bold;
+    text-size-adjust: inherit;
+    font-size-adjust: inherit;
+    margin: 0;
+}
+
+.font_two{
+    font-size: 1.5em;
+    font-weight: bold;
+    text-size-adjust: inherit;
+    font-size-adjust: inherit;
+    margin: 0;
+}
+
+.font_three{
+    font-size: 1.2em;
+    font-weight: bold;
+    text-size-adjust: inherit;
+    font-size-adjust: inherit;
+    margin: 0;
+}
+
+.font_four{
+    font-size: .99em;
+    font-weight: 400;
+    margin: 0;
+}
+
+.font_five{
+    font-size: .93em;
+    font-weight: 400;
+    text-size-adjust: inherit;
+    font-size-adjust: inherit;
+    margin: 0;
+}
+
+.font_six{
+    font-size: .80em;
+    font-weight: 500;
+    text-size-adjust: inherit;
+    font-size-adjust: inherit;
+    margin: 0;
+}
+
+.font_p{
+    font-size: .93em;
+    text-size-adjust: inherit;
+    font-size-adjust: inherit;
+    margin: 0;
+}
+
+.font_alpha{
+    font-size: .90em;
+    text-size-adjust: inherit;
+    font-size-adjust: inherit;
+    margin: 0;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 375px){
+    .font_alpha{
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width : 768px){
+    .font_one{
+        font-size: 4.4em;
+    }
+}
