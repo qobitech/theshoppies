@@ -191,7 +191,7 @@ class LandingPage extends React.Component {
 
         const { One, Four } = font
 
-        const { handleSubmit, handleOnChange, handleFocus, addNomination, removeNomination,getNomination,
+        const { handleSubmit, handleOnChange, handleFocus, addNomination, removeNomination,
                 state : { title, isFocus, nominations, trigger, data, loading, error }  } = this
 
         const searchWord = title;
@@ -264,7 +264,7 @@ class LandingPage extends React.Component {
                                 </li>
                                 <li className="nav-item">
                                 <a className={`nav-link bg-transparent ${csshome.tab}`} data-toggle="tab" href="#nominationid">
-                                    Nominations ( { getNomination().length } )
+                                    Nominations
                                 </a>
                                 </li>
                             </ul>
