@@ -4,8 +4,12 @@ import Lazyload from 'react-lazyload'
 import spinner from '../assets/images/spinner.svg'
 import homecss from './landingpage.module.css'
 import Cookies from 'universal-cookie'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const cookies = new Cookies();
+
+Aos.init();
 
 class ResultItem extends React.Component {
     constructor( props ){
@@ -13,7 +17,8 @@ class ResultItem extends React.Component {
         this.state={
             tray : false,
             disabledBtn : false,
-            close : "0px"
+            close : "0px",
+            clicked : false
         }
     }
 
@@ -59,6 +64,7 @@ class ResultItem extends React.Component {
         const { props : { handleNomination }, compareObj } = this
         handleNomination( index );
         compareObj( );
+        this.setState( { clicked : this.state.clicked } )
     }
 
     render(){
@@ -74,7 +80,7 @@ class ResultItem extends React.Component {
 
         return(
 
-            <span className={`d-block w-100`}  style={{ borderBottom : ( ( data.length - 1 ) === index  || tray ) ? "0" : "1px solid #f7f7f7" }} >
+            <span className={`d-block w-100`} data-aos="zoom-in" style={{ borderBottom : ( ( data.length - 1 ) === index  || tray ) ? "0" : "1px solid #f7f7f7" }} >
                 
                 <span className="d-flex flex-wrap align-items-center w-100 justify-content-between" >
                     
@@ -99,7 +105,7 @@ class ResultItem extends React.Component {
                                 { btnTxt }
                             </button>
                             :
-                            <button style={{ ...button.style }} className={ button.className } 
+                            <button style={{ ...button.style }} className={ button.className }
                                 onClick={ () => handleEvent( index ) } >
                                 { btnTxt }
                             </button>}                            

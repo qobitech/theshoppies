@@ -10,6 +10,10 @@ import * as dataprops from './dataprops'
 import Notification from '../notification'
 import Share from '../share'
 import * as nominationprops from './notificationprops'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+
+Aos.init();
 
 const cookies = new Cookies();
 
@@ -207,12 +211,14 @@ class LandingPage extends React.Component {
                 <Share share={ share } />
                 <div className={` container my-0 my-lg-5 p-0`}>
                     <div className={`w-100 pt-2 pb-5 px-3 px-lg-5 ${csshome.bg}`} >
-                        <span className="pt-3 d-flex w-100 mt-4 text-left text-md-center justify-content-start justify-content-md-center">
+                        <span className="pt-3 d-flex w-100 mt-4 text-left text-md-center justify-content-start justify-content-md-center"
+                            data-aos="fade-right" data-aos-duration="2000" >
                             <One fontStyle={{color:"var(--main-color7)", overflowWrap: "break-word"}} fontClass={csshome.header}>
                                 The Shoppies
                             </One>
                         </span>
-                        <span className="pt-4 pb-5 d-flex w-100 text-left text-md-center justify-content-start justify-content-md-center">
+                        <span className="pt-4 pb-5 d-flex w-100 text-left text-md-center justify-content-start justify-content-md-center"
+                            data-aos="fade-up" data-aos-duration="2000" >
                             <Four fontStyle={{fontFamily : "encode_sans_medium", lineHeight:"25px" }} fontClass={csshome.description}>
                                 Search & Nominate up to 
                                 <span style={{fontSize:"17px", color : "var(--main-color7)"}}>
@@ -220,7 +226,7 @@ class LandingPage extends React.Component {
                                 </span> of your favorite movies in the Shopify Movie Awards
                             </Four>
                         </span>
-                        <span className="d-flex w-100 text-center justify-content-center">
+                        <span className="d-flex w-100 text-center justify-content-center" data-aos="fade-in" data-aos-duration="2800">
                             <font.Para  fontClass="text-warning" fontStyle={{ cursor:"pointer"}}
                                 clickk={ handleShare }  >
                                 Share&nbsp;&nbsp;  

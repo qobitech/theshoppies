@@ -1,9 +1,15 @@
+import React from 'react'
+import { moreinfoProps } from './props'
+
+const { button } = moreinfoProps
+
 export const max = 5;
 
 export const notification = {
     maxNomination : { 
         msg : `Congratulations, You have completed your ${max} favourite movie nominations`,
-        tip : "" 
+
+    tip : <button className={button.className} style={{...button.style}}>Submit Nominations</button> 
     },
     exceedNomination : { 
         msg : `Your ${max} favourite movie nominations is complete`,
