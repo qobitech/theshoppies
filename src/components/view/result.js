@@ -80,7 +80,8 @@ class ResultItem extends React.Component {
 
         return(
 
-            <span className={`d-block w-100`} data-aos="zoom-in" style={{ borderBottom : ( ( data.length - 1 ) === index  || tray ) ? "0" : "1px solid #f7f7f7" }} >
+            <span className={`d-block w-100`} data-aos="zoom-in" data-aos-once="true"
+            style={{ borderBottom : ( ( data.length - 1 ) === index  || tray ) ? "0" : "1px solid #f7f7f7" }} >
                 
                 <span className="d-flex flex-wrap align-items-center w-100 justify-content-between" >
                     
