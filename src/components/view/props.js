@@ -100,7 +100,7 @@ export const modalJson = (color,bg) => ({
         }
     },
     modalBody : {
-        className : "modal-dialog modal-dialog-centered w-100",
+        className : "modal-dialog-centered w-100",
         style : {
             
         }

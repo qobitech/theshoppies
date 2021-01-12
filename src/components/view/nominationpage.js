@@ -23,7 +23,7 @@ class Nomination extends React.Component {
 
         const btnTxt = "Remove"
 
-        const { moreinfoProps : { buttonRemove } } = styleProps;
+        const { moreinfoProps : { buttonRemove, button } } = styleProps;
 
         const tapprops = isMobile ? "tab-pane fade" : ""
 
@@ -47,6 +47,13 @@ class Nomination extends React.Component {
                         }
                         </ul>
                     </span>
+                    {nominations.length === 5 &&
+                    <span className="d-block w-100 border-top p-0 py-3 text-center">
+                        
+                        <button className={ button.className } style={{ ...button.style }} >
+                                    Submit Nominations
+                        </button>                        
+                    </span>}
                 </div>
             </div>
         )

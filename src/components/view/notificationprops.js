@@ -9,7 +9,7 @@ export const notification = {
     maxNomination : { 
         msg : `Congratulations, You have completed your ${max} favourite movie nominations`,
 
-    tip : <button className={button.className} style={{...button.style}}>Submit Nominations</button> 
+    tip : <button className={button.className} style={{...button.style, cursor:"pointer"}}>Submit Nominations</button> 
     },
     exceedNomination : { 
         msg : `Your ${max} favourite movie nominations is complete`,
