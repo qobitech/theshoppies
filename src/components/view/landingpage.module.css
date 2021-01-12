@@ -1,0 +1,77 @@
+.sticky {
+    position: -webkit-sticky; /* Safari & IE */
+    position: -moz-sticky;
+    position: sticky;
+    top: 90px;
+}
+
+.bg{
+    /* background-image: url('../assets/images/saksham-gangwar-YVgOh8w1R4s-unsplash.jpg'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: linear-gradient(rgb(22,41,52),rgb(0, 55, 82))
+}
+
+.tab{
+    color : #fff;
+}
+
+.description{
+    color: #fff;
+}
+
+.tray{
+    transition: .4s ease;
+    -webkit-transition: .4s ease;
+    -moz-transition: .4s ease;
+    -o-transition: .4s ease;
+    -ms-transition: .4s ease;
+    animation: open .20s ease-in-out;
+    animation-fill-mode: forwards;
+    /* backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden; */
+
+    /* -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    transform: translateZ(0); */
+}
+
+.trayclose{
+    transition: .4s ease;
+    -webkit-transition: .4s ease;
+    -moz-transition: .4s ease;
+    -o-transition: .4s ease;
+    -ms-transition: .4s ease;
+    animation: close .20s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes open{
+    from {
+        height : 0px;
+    }
+    to {
+        height : 270px
+    }
+}
+
+@keyframes close{
+    from {
+        height : 270px;
+    }
+    to {
+        height : 0px;  
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .header{
+        font-size: 2.2em;
+    }
+    
+    .description{
+        font-size: .84em;
+    }
+}
