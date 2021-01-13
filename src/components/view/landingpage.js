@@ -194,7 +194,7 @@ class LandingPage extends React.Component {
         const { state : { click, message, tip, share, isMobile, numberofPages, first, last,
                           title, isFocus, nominations, trigger, data, loading, error }, 
         handleClick, handleShare, handlePage, handleSubmit, handleOnChange, handleFocus, 
-        addNomination, removeNomination, formBtn } = this
+        addNomination, removeNomination, getNomination, formBtn } = this
         
         const searchWord = title;
         
@@ -264,7 +264,7 @@ class LandingPage extends React.Component {
                                 </li>
                                 <li className="nav-item">
                                 <a className={`nav-link bg-transparent ${csshome.tab}`} data-toggle="tab" href="#nominationid">
-                                    Nominations
+                                    Nominations ( {  Array.isArray(getNomination()) ? getNomination().length : "0" } ) 
                                 </a>
                                 </li>
                             </ul>
