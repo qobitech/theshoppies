@@ -187,17 +187,16 @@ class LandingPage extends React.Component {
         setTimeout( ( ) => { this.setState( { nominations : this.getNomination( ) } ) }, 100 )
     }
 
-    render(){
+    render( ){
 
         const { One, Four } = font
 
-        const { handleSubmit, handleOnChange, handleFocus, addNomination, removeNomination,
-                state : { title, isFocus, nominations, trigger, data, loading, error }  } = this
-
+        const { state : { click, message, tip, share, isMobile, numberofPages, first, last,
+                          title, isFocus, nominations, trigger, data, loading, error }, 
+        handleClick, handleShare, handlePage, handleSubmit, handleOnChange, handleFocus, 
+        addNomination, removeNomination, formBtn } = this
+        
         const searchWord = title;
-
-        const { state : { click, message, tip, share, isMobile, numberofPages, first, last }, 
-                handleClick, handleShare, handlePage, formBtn } = this
         
         const resultProps = { data, loading, error, searchWord, addNomination, trigger, isMobile, 
                               handlePage, numberofPages, first, last } 
