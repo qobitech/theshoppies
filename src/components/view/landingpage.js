@@ -37,8 +37,8 @@ class LandingPage extends React.Component {
             isMobile : false,
             page : 1,
             numberofPages : 0,
-            first : true,
-            last : true
+            first : false,
+            last : false
         }
         this.formBtn = React.createRef();
     }

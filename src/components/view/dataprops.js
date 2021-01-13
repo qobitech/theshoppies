@@ -15,8 +15,12 @@ const result = 10;
 
 const numberofPages = ( totalresult, pagenum, first, last ) => {
     if( totalresult % result === 0 ){
-        if( pagenum === ( totalresult / result ) ){
-            last( true );
+        if( pagenum === ( totalresult / result ) ){    
+            if( pagenum !== 1 ){
+                first( false ); last( true );
+            }else{
+                first( true ); last( true );
+            }
         }else{
             if( pagenum === 1 ){
                 first( true ); last( false );
@@ -27,7 +31,11 @@ const numberofPages = ( totalresult, pagenum, first, last ) => {
         return "Page " + pagenum + " of " + ( totalresult / result )
     }else{
         if( pagenum === ( Math.floor( totalresult / result ) + 1 ) ){
-            last( true );
+            if( pagenum !== 1 ){
+                first( false ); last( true );
+            }else{
+                first( true ); last( true );
+            }
         }else{
             if( pagenum === 1 ){
                 first( true ); last( false );
