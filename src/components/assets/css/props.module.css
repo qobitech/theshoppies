@@ -1,0 +1,107 @@
+
+.title {    
+    font-size: 12px;
+    font-family : "encode_sans_medium";
+}
+    
+.value {
+    font-size: 12px;
+    white-space : nowrap;
+}
+
+.button {
+    background : var(--main-color7);
+    color : #fff;
+    height : 30px;
+    font-family : "encode_sans_medium";
+    font-size:12px;
+    outline:0;
+    cursor: pointer;
+}
+    
+.buttonPagination {
+    border : 1px solid var(--main-color7);
+    color : var(--main-color7);
+    height : 30px;
+    font-family : "encode_sans_medium";
+    font-size:12px;
+    outline:0;
+    background: none;
+}
+
+.buttonDisabled {
+    background : #ededed;
+    color : #7c7c7c;
+    height : 30px;
+    font-family : "encode_sans_medium";
+    font-size: 12px;
+    outline:0;
+    border: 1px solid #c2c2c2;
+}
+
+.buttonRemove {
+    border : 1px solid var(--main-color7);
+    color : var(--main-color7);
+    height : 30px;
+    font-size:12px;
+    outline:0;
+}
+
+.modalContainer {
+    background : none;
+    z-index : 400;
+}
+
+.modalCloseContainer {
+    top:0;
+    right:0;
+    height:100%;
+    cursor:pointer;   
+}
+
+.modalBodyContent {
+        min-height : 50px;
+}
+
+.modalBodyText {
+    font-family : var(--semi);
+    line-height : 27px;
+    font-size : 1em;   
+}
+
+.titleJson {
+    text-transform : uppercase;
+    font-family : var(--semi);
+    transition : all 0.3s ease;
+    cursor : pointer;
+}
+
+.closeCrumb {
+    font-size : 14px;
+    cursor : pointer;
+    transition : all 0.3s ease;
+}
+
+.shareInput {
+    height:40px;
+    outline : 0;
+}
+
+.shareButton {
+    border: 1px solid var(--main-color7);
+    color : var(--main-color7);
+}
+
+.shareIcon{
+    color: black;
+}
+
+.shareBtnContainer {
+    top:0;
+    right:0;
+}
+
+.shareHeader {
+    color : color;
+    font-size : 1.4em;
+}
