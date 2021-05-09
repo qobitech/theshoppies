@@ -10,31 +10,6 @@
   font-display: block;
 }
 
-
-@font-face {
-  font-family: 'source_sans_pro';
-  src: url('./components/assets/font/manrope/Manrope-VariableFont_wght.ttf');
-  font-display: fallback;
-}
-
-@font-face {
-  font-family: 'metro';
-  src: url('./components/assets/font/metro/Metropolis-Regular.otf');
-  font-display: fallback;
-}
-
-@font-face {
-  font-family: 'manrope';
-  src: url('./components/assets/font/manrope/Manrope-VariableFont_wght.ttf');
-  font-display: fallback;
-}
-
-@font-face {
-  font-family: 'ad';
-  src: url('./components/assets/font/qs/Quicksand-VariableFont_wght.ttf');
-  font-display: fallback;
-}
-
 @font-face {
   font-family: 'encode_sans_medium';
   src: url('./components/assets/font/encode_sans/EncodeSans-Medium.ttf');

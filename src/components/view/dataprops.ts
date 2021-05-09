@@ -1,5 +1,5 @@
 
-function API(url){
+function API(url:string){
     return fetch(url,{
         method : "GET",
     }).then(resp => resp.json())  
@@ -13,10 +13,17 @@ export const fetchstatus = {
 
 const result = 10;
 
-const numberofPages = ( totalresult, pagenum, first, last ) => {
+type SetState = (value: React.SetStateAction<boolean>) => void
+type dataFunction = (data : any)=> void
+
+const numberofPages = ( totalresult : number, pagenum: number, first: SetState, last: SetState ) =>{
     if( totalresult % result === 0 ){
-        if( pagenum === ( totalresult / result ) ){
-            last( true );
+        if( pagenum === ( totalresult / result ) ){    
+            if( pagenum !== 1 ){
+                first( false ); last( true );
+            }else{
+                first( true ); last( true );
+            }
         }else{
             if( pagenum === 1 ){
                 first( true ); last( false );
@@ -27,7 +34,11 @@ const numberofPages = ( totalresult, pagenum, first, last ) => {
         return "Page " + pagenum + " of " + ( totalresult / result )
     }else{
         if( pagenum === ( Math.floor( totalresult / result ) + 1 ) ){
-            last( true );
+            if( pagenum !== 1 ){
+                first( false ); last( true );
+            }else{
+                first( true ); last( true );
+            }
         }else{
             if( pagenum === 1 ){
                 first( true ); last( false );
@@ -39,9 +50,9 @@ const numberofPages = ( totalresult, pagenum, first, last ) => {
     }
 }
 
-export const getMovieData = ( movies, handleData, handleLoading, handleError, getNumberofPages, pagenum, first, last ) => {
+export const getMovieData = ( movies : string, handleData:dataFunction, handleLoading:dataFunction, handleError:dataFunction, getNumberofPages:dataFunction, pagenum: number, first:SetState, last:SetState ) => {
     let dmovies = movies.trim(); dmovies  = movies.replace(/\s/g, '+')
-    let api = pagenum === undefined ? 
+    let api = pagenum === 0 ? 
         `https://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_OMDB_API_KEY}&type=movie&plot=full&s=${dmovies}`
         :
         `https://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_OMDB_API_KEY}&type=movie&plot=full&s=${dmovies}&page=${pagenum}`
