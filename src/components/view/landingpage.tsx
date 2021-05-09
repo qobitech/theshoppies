@@ -7,13 +7,9 @@ import Nomination from './nominationpage'
 import csshome from '../assets/css/landingpage.module.css'
 import Notification from '../notification'
 import Share from '../share'
-import * as nominationprops from './notificationprops'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
-import { getNominations, useData } from '../utils'
-import Cookies from 'universal-cookie'
-
-const cookies = new Cookies();
+import { useData } from '../utils'
 
 Aos.init();
 
@@ -22,48 +18,9 @@ const LandingPage:FC = () => {
     const formBtn = useRef<HTMLButtonElement>(null);
 
     const { handleOnChange, handleSubmit, data, loading, error, numberofPages, first, last, handlePage, title,
-            handleFocus, handleShare, handleClick, isFocus, share, click, message, tip, setMessage, setClick, setTip,
-            setMovieNominations, nominations, isMobile
+            handleFocus, handleShare, handleClick, isFocus, share, click, message, tip, nominations, isMobile, 
+            addNomination, removeNomination
         } = useData({formBtn}) 
-
-    const addNomination = ( index : number ) => {
-        const {max, notification} = nominationprops;
-        if( getNominations().length !== max ){
-            setMessage('');setClick(false);
-            var nominations = [];
-            if( Array.isArray(getNominations())){          
-                nominations = getNominations(); 
-                nominations.push( data[ index ] );
-                cookies.set( 'nomination', JSON.stringify( nominations ) );
-                setMovieNominations();
-                setTimeout( ( ) => {
-                    if( nominations.length === max ){
-                        setMessage(notification.maxNomination.msg);
-                        setTip(notification.maxNomination.tip);
-                        setClick(true);
-                    }
-                },200 )
-            }else{
-                nominations.push( data[ index ] );
-                cookies.set( 'nomination', JSON.stringify( nominations ) );
-                setMovieNominations();
-            }
-        }else{
-            setMessage(notification.exceedNomination.msg);
-            setTip(notification.exceedNomination.tip);
-            setClick(true);
-        }
-    }
-
-    const removeNomination = ( index : number ) => {
-        if( getNominations().length !== 0 ){
-            var nominations  = getNominations();
-            const arrayindex = nominations.indexOf( nominations[ index ] );
-            if( arrayindex > -1 ) nominations.splice( index, 1 );
-            cookies.set( 'nomination', JSON.stringify( nominations ) );
-            setMovieNominations();
-        }
-    }
 
     const { One, Four, Para, Alpha } = font
         
