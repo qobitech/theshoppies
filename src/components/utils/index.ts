@@ -2,6 +2,7 @@ import Cookies from 'universal-cookie'
 import { useEffect, useState } from 'react'
 import { IMovies } from '../interface'
 import * as dataprops from '../view/dataprops'
+import * as nominationprops from '../view/notificationprops'
 
 export const compareObj = ( arr : Array<{[key:string]:any}>, obj : {[key:string]:any} ) => {
     var isSame = false;
@@ -126,19 +127,58 @@ export const useData = ( props : INavigate ) => {
         setTimeout(()=>setNominations(getNominations()),100)
     }
 
-    useEffect(()=>{
-        const { getMovieData } = dataprops
-        if( title.length > 0 ){
-            getMovieData(title, handleData, handleLoading, handleError, setNumberofPages, page, setFirst, setLast)
-        }
-    },[title, page])
+    // useEffect(()=>{
+    //     const { getMovieData } = dataprops
+    //     if( title.length > 0 ){
+    //         getMovieData(title, handleData, handleLoading, handleError, setNumberofPages, page, setFirst, setLast)
+    //     }
+    // },[title, page])
 
     useEffect(()=>{
         handleMobile()
         setMovieNominations();
     },[]) 
 
+    const addNomination = ( index : number ) => {
+        const {max, notification} = nominationprops;
+        if( getNominations().length !== max ){
+            setMessage('');setClick(false);
+            var nominations = [];
+            if( Array.isArray(getNominations())){          
+                nominations = getNominations(); 
+                nominations.push( data[ index ] );
+                cookies.set( 'nomination', JSON.stringify( nominations ) );
+                setMovieNominations();
+                setTimeout( ( ) => {
+                    if( nominations.length === max ){
+                        setMessage(notification.maxNomination.msg);
+                        setTip(notification.maxNomination.tip);
+                        setClick(true);
+                    }
+                },200 )
+            }else{
+                nominations.push( data[ index ] );
+                cookies.set( 'nomination', JSON.stringify( nominations ) );
+                setMovieNominations();
+            }
+        }else{
+            setMessage(notification.exceedNomination.msg);
+            setTip(notification.exceedNomination.tip);
+            setClick(true);
+        }
+    }
+
+    const removeNomination = ( index : number ) => {
+        if( getNominations().length !== 0 ){
+            var nominations  = getNominations();
+            const arrayindex = nominations.indexOf( nominations[ index ] );
+            if( arrayindex > -1 ) nominations.splice( index, 1 );
+            cookies.set( 'nomination', JSON.stringify( nominations ) );
+            setMovieNominations();
+        }
+    }
+
     return { handleOnChange, handleSubmit, data, loading, error, numberofPages, first, last, handlePage, title,
-        handleFocus, handleShare, handleClick, isFocus, share, click, message, tip, setMessage, setClick, setTip,
-        setMovieNominations, nominations, isMobile }
+        handleFocus, handleShare, handleClick, isFocus, share, click, message, tip, nominations, isMobile, 
+        addNomination, removeNomination }
 }
