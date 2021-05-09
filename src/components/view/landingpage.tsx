@@ -47,9 +47,9 @@ const LandingPage:FC = () => {
                         data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
                         <Four fontStyle={{fontFamily : "encode_sans_medium", lineHeight:"25px" }} fontclass={csshome.description}>
                             Search & Nominate up to 
-                            <div style={{fontSize:"17px", color : "var(--main-color7)"}}>
+                            <span style={{fontSize:"17px", color : "var(--main-color7)"}}>
                                 &nbsp;FIVE (5)&nbsp;
-                            </div> of your favorite movies in the Shopify Movie Awards
+                            </span> of your favorite movies in the Shopify Movie Awards
                         </Four>
                     </div>
                     <div className="d-flex w-100 text-center justify-content-center" data-aos="fade-in" 
