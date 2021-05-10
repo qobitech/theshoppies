@@ -1,19 +1,22 @@
 @font-face {
   font-family: 'encode_sans';
-  src: url('./components/assets/font/encode_sans/EncodeSans-Regular.ttf');
-  font-display: block;
+  src: local('Custom Font'), url('./components/assets/font/encode_sans/EncodeSans-Regular.ttf');
+  font-display: fallback;
+  unicode-range: U+000-5FF;
 }
 
 @font-face {
   font-family: 'encode_sans_semi_bold';
-  src: url('./components/assets/font/encode_sans/EncodeSans-SemiBold.ttf');
-  font-display: block;
+  src: local('Custom Font'), url('./components/assets/font/encode_sans/EncodeSans-SemiBold.ttf');
+  font-display: fallback;
+  unicode-range: U+000-5FF;
 }
 
 @font-face {
   font-family: 'encode_sans_medium';
-  src: url('./components/assets/font/encode_sans/EncodeSans-Medium.ttf');
+  src: local('Custom Font'), url('./components/assets/font/encode_sans/EncodeSans-Medium.ttf');
   font-display: fallback;
+  unicode-range: U+000-5FF;
 }
 
 
