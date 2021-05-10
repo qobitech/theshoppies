@@ -1,6 +1,46 @@
-# Getting Started with Create React App
+# Getting Started with The Shoppies Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### url : https://shoppies-demo.netlify.app/
+
+External libraries used :
+
+ - typescript
+ - react-lazyload
+ - react-router-dom
+ - aos
+ - bootstrap
+ - fontawesome - cdn
+
+## Project Structure
+
+### View - 
+    contains all the logic and view
+
+### Utils - 
+    font : contains wrapped header components; 
+        ie : h1 = One, h2 = Two, h3 = Three, h4 = Four, h5 = Five, h6 = Six, p = Para, a = Alpha; 
+        
+    url : contains all the urls for this application;
+        ie : LandingPage and 404Page
+
+### Share - 
+    contains the share modal component that appears when you click the share button
+
+### Notification - 
+    contains the notification modal component that appears when the user nominates 5 movies 
+
+### Layout - 
+    contains the heder and footer component
+
+### Interface - 
+    contains the interface for the expected data structure returned via the endpoints
+
+### Assets - 
+    contains the css, bootstrap-css, font, images for the application
+
+
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) & TypeScript;
 
 ## Available Scripts
 
