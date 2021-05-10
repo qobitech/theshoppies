@@ -6,13 +6,14 @@ import css from '../assets/css/props.module.css'
 
 interface IProps {
     resultProps : { [ key : string ] : any };
+    resultid? : string;
 }
 
 const Result : FC<IProps> = ( props ) => {
 
         const { Three, Five } = font
 
-        const { resultProps } = props
+        const { resultProps, resultid } = props
 
         const btnTxt = "Nominate"
 
@@ -25,7 +26,7 @@ const Result : FC<IProps> = ( props ) => {
         let prevbtnStyle = first ? css.buttonDisabled : css.buttonPagination
 
         return(
-            <div className={`col-12 col-lg-6 pl-0 pr-0 pr-lg-3 ${ tapprops }`} >
+            <div className={`col-12 col-lg-6 pl-0 pr-0 pr-lg-3 ${ tapprops }`} id={ resultid }>
                 <div className="d-block w-100 bg-white rounded mt-5 mb-2 py-4 px-4" style={{boxShadow:"var(--box-shadow)"}} >
                     <span className="d-flex w-100 align-items-center" style={{overflow:"hidden", height:"45px"}}>
                         <Three fontStyle={{overflowWrap : "break-word", fontFamily:"encode_sans_semi_bold"}} >

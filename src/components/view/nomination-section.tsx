@@ -11,13 +11,14 @@ interface IProps {
         isMobile : boolean; 
         removeNomination : (index:number)=>void 
     };
+    nominationid? : string;
 }
 
 const Nomination : FC<IProps> = (props) => {
 
     const { Three, Five } = font
 
-    const { nominationProps } = props
+    const { nominationProps, nominationid } = props
 
     const { isMobile, nominations, removeNomination } = nominationProps || {}
 
@@ -26,7 +27,7 @@ const Nomination : FC<IProps> = (props) => {
     const tapprops = isMobile ? "tab-pane fade" : ""
 
     return(
-        <div className={`${csshome.sticky} col-12 col-lg-6 pr-0 pl-0 pl-lg-3 ${ tapprops }`} >      
+        <div className={`${csshome.sticky} col-12 col-lg-6 pr-0 pl-0 pl-lg-3 ${ tapprops }`} id={ nominationid }>      
             <div className="d-flex flex-column bg-white rounded my-5 py-4 px-4" style={{boxShadow:"var(--box-shadow)"}}>
                 <div className="d-flex w-100 align-items-center" style={{overflow:"hidden", height:"45px"}}>
                     <Three fontStyle={{fontFamily:"encode_sans_semi_bold"}}>Nominations</Three>

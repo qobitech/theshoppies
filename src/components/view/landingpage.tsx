@@ -2,8 +2,8 @@ import React,{FC, useRef} from 'react'
 import Header from '../layout/header.js'
 import Footer from '../layout/footer.js'
 import * as font from '../utils/font/font'
-import Result from './resultpage'
-import Nomination from './nominationpage'
+import ResultSection from './result-section'
+import NominationSection from './nomination-section'
 import csshome from '../assets/css/landingpage.module.css'
 import Notification from '../notification'
 import Share from '../share'
@@ -86,26 +86,26 @@ const LandingPage:FC = () => {
                     <div className="d-block mt-5">
                         <ul className="nav nav-tabs">
                             <li className="nav-item">
-                            <a className={`nav-link active bg-transparent ${csshome.tab}`} data-toggle="tab" href="#resultid">
-                                Result
-                            </a>
+                                <a className={`nav-link active bg-transparent ${csshome.tab}`} data-toggle="tab" href="#resultid">
+                                    Result
+                                </a>
                             </li>
                             <li className="nav-item">
-                            <a className={`nav-link bg-transparent ${csshome.tab}`} data-toggle="tab" href="#nominationid">
-                                Nominations ( {  Array.isArray(nominations) ? nominations.length : "0" } ) 
-                            </a>
+                                <a className={`nav-link bg-transparent ${csshome.tab}`} data-toggle="tab" href="#nominationid">
+                                    Nominations ( {  Array.isArray(nominations) ? nominations.length : "0" } ) 
+                                </a>
                             </li>
                         </ul>
                     </div>
                     <div className="d-block tab-content w-100 m-0 p-0">
-                        <Result resultProps={ resultProps } />
-                        <Nomination nominationProps={ nominationProps } />
+                        <ResultSection resultProps={ resultProps } resultid="resultid" />
+                        <NominationSection nominationProps={ nominationProps } nominationid="nominationid" />
                     </div>
                     </>
                     :
                     <div className={`d-flex flex-wrap align-items-start justify-content-between`}>
-                        <Result resultProps={ resultProps } />
-                        <Nomination nominationProps={ nominationProps } />
+                        <ResultSection resultProps={ resultProps } />
+                        <NominationSection nominationProps={ nominationProps } />
                     </div>
                     }
                 </div>
