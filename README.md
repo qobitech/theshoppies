@@ -14,7 +14,7 @@ External libraries used :
 ## Project Structure
 
 ### View - 
-    contains all the logic and view
+    contains all the logic and view components
 
 ### Utils - 
     font : contains wrapped header components; 
